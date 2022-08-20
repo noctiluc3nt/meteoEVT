@@ -1,0 +1,9 @@
+.git/
+R/constants.R
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.Rhistory$
+^cran-comments\.md$
+^README\.Rmd$
+^CRAN-RELEASE$
+
