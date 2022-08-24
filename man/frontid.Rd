@@ -61,8 +61,10 @@ data = readin_era5(myfile)
 tfp_fronts=frontid(data$temp,lev_p=data$lev,lat=data$lat,fronts_only=TRUE)
 
 #front identification using F diagnostic (example with front statistic)
-f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='f',threshold=2,fronts_only=FALSE)
+f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+method='f',threshold=2,fronts_only=FALSE)
 
 #front identification using the dynamic state index (example with statistic)
-dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='dsi',threshold=4*10^-16,fronts_only=FALSE)
+dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+method='dsi',threshold=4*10^-16,fronts_only=FALSE)
 }

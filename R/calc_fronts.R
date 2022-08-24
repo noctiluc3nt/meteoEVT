@@ -84,10 +84,12 @@ calc_fdiag=function(t_fld,u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,mode=
 #' tfp_fronts=frontid(data$temp,lev_p=data$lev,lat=data$lat,fronts_only=TRUE)
 #'
 #' #front identification using F diagnostic (example with front statistic)
-#' f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='f',threshold=2,fronts_only=FALSE)
+#' f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+#'	method='f',threshold=2,fronts_only=FALSE)
 #'
 #' #front identification using the dynamic state index (example with statistic)
-#' dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='dsi',threshold=4*10^-16,fronts_only=FALSE)
+#' dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+#'	method='dsi',threshold=4*10^-16,fronts_only=FALSE)
 frontid=function(t_fld,u_fld=NULL,v_fld=NULL,w_fld=NULL,phi_fld=NULL,lev_p,lat=NULL,method='tfp',threshold=2*10^-10,dx=0.25,dy=0.25,fronts_only=FALSE,mode='lonlat') {
 	# identify frontal zones based on threshold exceedance
 	if (method=='tfp') {

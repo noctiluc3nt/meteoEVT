@@ -1,5 +1,4 @@
-.git/
-R/constants.R
+^\.github/$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.Rhistory$
