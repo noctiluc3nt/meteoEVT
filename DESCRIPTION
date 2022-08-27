@@ -2,7 +2,7 @@ Package: meteoEVT
 Type: Package
 Title: Computation and Visualization of Energetic and Vortical Atmospheric Quantities
 Version: 0.1.0
-Date: 2022-08-20
+Date: 2022-08-26
 Authors@R: c(person('Laura', 'Mack', email='laura.mack@fu-berlin.de',role=c('cre','aut')))
 Maintainer: Laura Mack <laura.mack@fu-berlin.de>
 Description: Energy-Vorticity theory (EVT) is the fundamental theory to describe processes in the atmosphere by combining conserved quantities from hydrodynamics and thermodynamics. The package 'meteoEVT' provides functions to calculate many energetic and vortical quantities, like potential vorticity, Bernoulli function and dynamic state index, for given gridded data, like ERA5 reanalysis. These quantities can be used, e.g., to identify atmospheric fronts, for which are separate functions provided here.
