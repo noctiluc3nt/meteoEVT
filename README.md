@@ -41,9 +41,9 @@ fill_horiz(data$lon,rev(data$lat),bernoulli[,nl:1,3],main='Bernoulli function @ 
 xi=calc_vorticity(data$u,data$v,data$w,data$lev,lat=data$lat)
 fill_horiz(data$lon,rev(data$lat),xi[,nl:1,3,3],main='Vorticity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-4,4,0.1),10)*10^-4, legend_loc='bottomleft',legend_title=TeX('vorticity \\[$s^{-1}$\\]'),xlab='lon',ylab='lat')
 
-#calculate helicity
+#calculate helicity density
 hel=calc_helicity(data$u,data$v,data$w,data$lev,lat=data$lat)
-fill_horiz(data$lon,rev(data$lat),hel[,nl:1,3],main='Helicity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-3,3,0.1),10)*10^-2,legend_loc='bottomleft',legend_title=TeX('helicity \\[$m^2/s^2$\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),hel[,nl:1,3],main='Helicity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-3,3,0.1),10)*10^-2,legend_loc='bottomleft',legend_title=TeX('helicity \\[$m/s^2$\\]'),xlab='lon',ylab='lat')
 
 #calculate PV
 pv=calc_pv(data$temp,data$u,data$v,data$w,data$lev,lat=data$lat)
@@ -55,7 +55,7 @@ fill_horiz(data$lon,rev(data$lat),dsi[,nl:1,3]*10^12,main='DSI @ 600 hPa\nStorm 
 ```
 
 The output figure looks:
-![](man/figures/example_zeynep.png) <br>
+![](inst/figures/example_zeynep.png) <br>
 
 
 Using the function `frontid` you can detect atmospheric fronts and analyze their properties:

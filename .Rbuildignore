@@ -4,6 +4,6 @@
 ^\.Rproj\.user$
 ^\.Rhistory$
 ^cran-comments\.md$
-^README\.Rmd$
+^README\.md$
 ^CRAN-RELEASE$
 
