@@ -15,5 +15,6 @@ Phenomenons in the Earth's atmosphere, like tropical hurricanes or extratropical
 \item Weber, T. and Névir, P. (2008). Storm tracks and cyclone development using the theoretical concept of the Dynamic State Index (DSI). Tellus A, 60(1):1–10.
 \item Parfitt, R., Czaja, A., and Seo, H. (2017). A simple diagnostic for the detection of atmospheric fronts. Geophys. Res. Lett., 44:4351–4358.
 \item Hewson, T. D. (1998). Objective fronts. Meteorol. Appl., 5:37–65.
+\item Mack, L., Rudolph, A. and Névir, P. (2022). Identifying atmospheric fronts based on diabatic processes using the dynamic state index (DSI), arXiv:2208.11438.
 }
 }

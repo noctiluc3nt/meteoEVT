@@ -1,7 +1,8 @@
 ^\.github/$
 ^\.git/$
+.github/*
 ^.*\.Rproj$
-^\.Rproj\.user$
+^\.Rproj$
 ^\.Rhistory$
 ^cran-comments\.md$
 ^README\.md$

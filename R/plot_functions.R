@@ -17,7 +17,6 @@
 #' @importFrom graphics .filled.contour legend par plot
 #' @importFrom purrr map
 #' @importFrom grDevices colorRampPalette
-#'
 fill_horiz = function(x,y,fld,levels=1:100,main='',worldmap=TRUE,legend_loc='topright', legend_title='',legend_only=F, Lab=NULL,...) {
 	n_lev=length(levels)
 	if (length(x)!=dim(fld)[1] | length(y)!=dim(fld)[2]) {
