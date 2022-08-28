@@ -41,6 +41,3 @@ Petterssen Frontogenesis Function
 \description{
 Calculates the Petterssen frontogenesis function based on the potential temperature
 }
-\examples{
-#folgt noch
-}

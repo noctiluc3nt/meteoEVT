@@ -51,7 +51,7 @@ frontid(
 list containing the used method and used threshold, field with logicals containing the detected frontal zones and numerics of temperature, u-wind, v-wind, w-wind, geopotential, vorticity, PV and DSI inside the determined frontal zones
 }
 \description{
-Calculates frontal zones and/or lines based on a chosen method (TFP, F diagnostic, DSI) and provides statistics ofthe distribution of meteorological quantities inside the determined frontak zones.
+Calculates frontal zones based on a chosen method (TFP, F diagnostic, DSI) and provides statistics of the distribution of meteorological quantities inside the determined frontak zones.
 }
 \examples{
 myfile=system.file("extdata", "era5_storm-zeynep.nc", package = "meteoEVT")

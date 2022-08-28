@@ -323,9 +323,6 @@ scalarprod=function(fld1,fld2) {
 #' @return field containing the cross product
 #' @export
 crossprod=function(fld1,fld2) {
-	#if (dim(fld1)!=dim(fld2)) {
-	#	message('Input fields have different dimensions.')
-	#}
 	dims=dim(fld1)
 	if (dims[4]!=3) {
 		message('The input fields must have the dimensions (lon,lat,p,3).')

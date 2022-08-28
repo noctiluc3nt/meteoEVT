@@ -58,7 +58,7 @@ calc_fdiag=function(t_fld,u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,mode=
 
 #' Front Identification und Statistics
 #'
-#' @description Calculates frontal zones and/or lines based on a chosen method (TFP, F diagnostic, DSI) and provides statistics ofthe distribution of meteorological quantities inside the determined frontak zones.
+#' @description Calculates frontal zones based on a chosen method (TFP, F diagnostic, DSI) and provides statistics of the distribution of meteorological quantities inside the determined frontak zones.
 #' @param t_fld temperature field [K]
 #' @param u_fld zonal velocity field [m/s]
 #' @param v_fld meridional velocity field [m/s]
@@ -139,9 +139,6 @@ frontid=function(t_fld,u_fld=NULL,v_fld=NULL,w_fld=NULL,phi_fld=NULL,lev_p,lat=N
 #'
 #' @return Petterssen Frontogenesis Function
 #' @export
-#'
-#' @examples
-#' #folgt noch
 calc_frontogenesis=function(t_fld,u_fld,v_fld,w_fld,lev_p,mode='lonlat',lat=NULL,dx=0.25,dy=0.25) {
 	th_fld=calc_theta(t_fld,lev_p)
 	thgrad=grad(th_fld,d=3,mode='p',rho=NULL,dx=dx,dy=dy,plev=lev_p) #3d gradient

@@ -8,7 +8,7 @@ Installing the current version of meteoEVT from CRAN:
 install.packages("meteoEVT")
 ```
 
-Installing the current (developing) version of meteoEVT from github:
+Installing the current (development) version of meteoEVT from github:
 ```r
 devtools::install_git("https://github.com/noctiluc3nt/meteoEVT")
 ```
@@ -31,27 +31,45 @@ library('latex2exp')
 ### step 3: calculation and visualization 
 #calculate potential temperature
 theta=calc_theta(data$temp,data$lev)
-fill_horiz(data$lon,rev(data$lat),theta[,nl:1,3],main='Potential Temperature @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(29,seq(29.5,30.8,0.1),32)*10^1, legend_loc='bottomleft',legend_title=TeX('$\\theta$ \\[K\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),theta[,nl:1,3],
+	main='Potential Temperature @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(29,seq(29.5,30.8,0.1),32)*10^1, legend_loc='bottomleft',
+	legend_title=TeX('$\\theta$ \\[K\\]'),xlab='lon',ylab='lat')
 
 #calculate Bernoulli function
 bernoulli=calc_bernoulli(data$temp,data$u,data$v,data$w,data$z)
-fill_horiz(data$lon,rev(data$lat),bernoulli[,nl:1,3],main='Bernoulli function @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(29,seq(29.4,31,0.1),32)*10^4, legend_loc='bottomleft',legend_title=TeX('B \\[$m^2/s^2$\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),bernoulli[,nl:1,3],
+	main='Bernoulli function @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(29,seq(29.4,31,0.1),32)*10^4, legend_loc='bottomleft',
+	legend_title=TeX('B \\[$m^2/s^2$\\]'),xlab='lon',ylab='lat')
 
 #calculate vorticity
 xi=calc_vorticity(data$u,data$v,data$w,data$lev,lat=data$lat)
-fill_horiz(data$lon,rev(data$lat),xi[,nl:1,3,3],main='Vorticity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-4,4,0.1),10)*10^-4, legend_loc='bottomleft',legend_title=TeX('vorticity \\[$s^{-1}$\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),xi[,nl:1,3,3],
+	main='Vorticity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(-10,seq(-4,4,0.1),10)*10^-4, legend_loc='bottomleft',
+	legend_title=TeX('vorticity \\[$s^{-1}$\\]'),xlab='lon',ylab='lat')
 
 #calculate helicity density
 hel=calc_helicity(data$u,data$v,data$w,data$lev,lat=data$lat)
-fill_horiz(data$lon,rev(data$lat),hel[,nl:1,3],main='Helicity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-3,3,0.1),10)*10^-2,legend_loc='bottomleft',legend_title=TeX('helicity \\[$m/s^2$\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),hel[,nl:1,3],
+	main='Helicity @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(-10,seq(-3,3,0.1),10)*10^-2,legend_loc='bottomleft',
+	legend_title=TeX('helicity \\[$m/s^2$\\]'),xlab='lon',ylab='lat')
 
 #calculate PV
 pv=calc_pv(data$temp,data$u,data$v,data$w,data$lev,lat=data$lat)
-fill_horiz(data$lon,rev(data$lat),pv[,nl:1,3]*10^6,main='PV @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(0,4,0.1),10), legend_loc='bottomleft',legend_title=TeX('PV \\[PVU\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),pv[,nl:1,3]*10^6,
+	main='PV @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(-10,seq(0,4,0.1),10), legend_loc='bottomleft',
+	legend_title=TeX('PV \\[PVU\\]'),xlab='lon',ylab='lat')
 
 #calculate DSI
 dsi=calc_dsi(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat)
-fill_horiz(data$lon,rev(data$lat),dsi[,nl:1,3]*10^12,main='DSI @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',levels=c(-10,seq(-1,1,0.1),10)*10^-3, legend_loc='bottomleft',legend_title=TeX('DSI \\[PVU^2/s\\]'),xlab='lon',ylab='lat')
+fill_horiz(data$lon,rev(data$lat),dsi[,nl:1,3]*10^12,
+	main='DSI @ 600 hPa\nStorm ZEYNEP 18.02.2022 18 UTC',
+	levels=c(-10,seq(-1,1,0.1),10)*10^-3, legend_loc='bottomleft',
+	legend_title=TeX('DSI \\[PVU^2/s\\]'),xlab='lon',ylab='lat')
 ```
 
 The output figure looks:
@@ -64,10 +82,12 @@ Using the function `frontid` you can detect atmospheric fronts and analyze their
 tfp_fronts=frontid(data$temp,lev_p=data$lev,lat=data$lat,fronts_only=TRUE)
 
 #front identification using F diagnostic (example with front statistic)
-f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='f',threshold=2,fronts_only=FALSE)
+f_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+	method='f',threshold=2,fronts_only=FALSE)
 
 #front identification using the dynamic state index (example with statistic)
-dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,method='dsi',threshold=4*10^-16,fronts_only=FALSE)
+dsi_fronts=frontid(data$temp,data$u,data$v,data$w,data$z,lev_p=data$lev,lat=data$lat,
+	method='dsi',threshold=4*10^-16,fronts_only=FALSE)
 ```
 For details and plots generated with this function, see [Mack et al., 2022](https://arxiv.org/abs/2208.11438). 
 
