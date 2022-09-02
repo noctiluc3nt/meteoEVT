@@ -13,7 +13,7 @@ fill_horiz(
   worldmap = TRUE,
   legend_loc = "topright",
   legend_title = "",
-  legend_only = F,
+  legend_only = FALSE,
   Lab = NULL,
   ...
 )

@@ -104,7 +104,7 @@ frontid=function(t_fld,u_fld=NULL,v_fld=NULL,w_fld=NULL,phi_fld=NULL,lev_p,lat=N
 	} else {
 		message('An unknown method was used. Use either tfp, f, or dsi.')
 	}
-	# determine meteorological properties of the above determined frontal zones
+	# determine meteorological properties of the above detected frontal zones
 	if (fronts_only==FALSE) {	
 	zeta=calc_vorticity(u_fld,v_fld,w_fld,lev_p,lat,dx,dy,zvort_only=FALSE,relative=FALSE,zvort_fld=NULL,mode)
 	pv_fld=calc_pv(t_fld,u_fld,v_fld,w_fld,lev_p,lat,dx,dy,zvort_only=FALSE,relative=FALSE,zvort_fld=NULL,mode)

@@ -17,7 +17,7 @@
 #' @importFrom graphics .filled.contour legend par plot
 #' @importFrom purrr map
 #' @importFrom grDevices colorRampPalette
-fill_horiz = function(x,y,fld,levels=1:100,main='',worldmap=TRUE,legend_loc='topright', legend_title='',legend_only=F, Lab=NULL,...) {
+fill_horiz = function(x,y,fld,levels=1:100,main='',worldmap=TRUE,legend_loc='topright', legend_title='',legend_only=FALSE, Lab=NULL,...) {
 	n_lev=length(levels)
 	if (length(x)!=dim(fld)[1] | length(y)!=dim(fld)[2]) {
 		message('Dimensions mismatch.')
@@ -25,15 +25,17 @@ fill_horiz = function(x,y,fld,levels=1:100,main='',worldmap=TRUE,legend_loc='top
 	if (is.null(Lab)) {
 		Lab=colorRampPalette(c("blue","lightblue","yellow","orange","red","darkred"), space = "Lab")
 	}
-	if (legend_only==F) {
+	if (legend_only==FALSE) {
 		plot(NA,xlim=range(x),ylim=range(y),main=main,...)
 		.filled.contour(x,y,fld,col=Lab(n_lev),levels=levels)
 		if (worldmap==TRUE) {
 			map(add=TRUE,col='black',lwd=2.5)
 		}
 	}
-	if (legend_only==T) {
-		par(new=T)
+	if (legend_only==TRUE) {
+		oldpar=par(no.readonly=TRUE)
+		on.exit(par(oldpar))
+		par(new=TRUE)
 		plot(NA,xlim=range(x),ylim=range(y),main=main,xlab='',ylab='',xaxt='n',yaxt='n',...)
 	}
 	levels2=levels[seq(2,n_lev-1,length.out=5)]
