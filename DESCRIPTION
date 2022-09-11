@@ -1,7 +1,7 @@
 Package: meteoEVT
 Type: Package
 Title: Computation and Visualization of Energetic and Vortical Atmospheric Quantities
-Version: 0.1.0
+Version: 0.1.0.999
 Date: 2022-09-02
 Authors@R: c(person("Laura", "Mack", email="laum52@zedat.fu-berlin.de",role=c("aut","cre")))
 Maintainer: Laura Mack <laum52@zedat.fu-berlin.de>

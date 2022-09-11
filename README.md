@@ -1,5 +1,12 @@
 # meteoEVT: Computation and Visualization of Energetic and Vortical Atmospheric Quantities
 
+<!-- badges: start --> 
+[![CRAN status](https://www.r-pkg.org/badges/version/meteoEVT)](https://cran.r-project.org/package=meteoEVT)
+[![Downloads (total)](http://cranlogs.r-pkg.org/badges/grand-total/meteoEVT?color=brightgreen)](https://cran.r-project.org/package=meteoEVT)
+[![Last Commit](https://img.shields.io/github/last-commit/noctiluc3nt/meteoEVT)](https://github.com/noctiluc3nt/meteoEVT)
+[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+<!-- badges: end -->
+
 Energy-Vorticity theory (EVT) is the fundamental theory to describe processes in the atmosphere by combining conserved quantities from hydrodynamics and thermodynamics. The package 'meteoEVT' provides functions to calculate many energetic and vortical quantities, like potential vorticity, Bernoulli function and dynamic state index (DSI) [e.g. Weber and Nevir, 2008, <doi:10.1111/j.1600-0870.2007.00272.x>], for given gridded data, like ERA5 reanalyses. These quantities can be studied directly or can be used for many applications in meteorology, e.g., the objective identification of atmospheric fronts. For this purpose, separate function are provided that allow the detection of fronts based on the thermic front parameter [Hewson, 1998, <doi:10.1017/S1350482798000553>], the F diagnostic [Parfitt et al., 2017, <doi:10.1002/2017GL073662>] and the DSI [Mack et al., 2022, <arXiv:2208.11438>]
 
 ## Installation
