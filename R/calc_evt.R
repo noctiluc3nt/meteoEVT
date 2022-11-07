@@ -204,7 +204,7 @@ calc_enstrophy=function(u_fld,v_fld,w_fld=NULL,lev_p,lat=NULL,dx=0.25,dy=0.25,zv
 #' #updraft helicity
 #' up_hel=calc_helicity(data$u,data$v,data$w,data$lev,lat=data$lat,vert_only=TRUE)
 calc_helicity=function(u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,vert_only=FALSE,relative=TRUE,zvort_fld=NULL,mode='lonlat') {
-	vort_fld=calc_vorticity(u_fld,v_fld,w_fld,lev_p,lat,dx,dy,zvort_only=vert_only,relative,zvort_fld,mode)
+	vort_fld=calc_vorticity(u_fld,v_fld,w_fld,lev_p,lat,dx,dy,vert_only,relative,zvort_fld,mode)
 	if (vert_only==TRUE) { #only 2d enstrophy
 		return(vort_fld*w_fld)
 	} else {
@@ -233,7 +233,7 @@ calc_helicity=function(u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,vert_onl
 #' data = readin_era5(myfile)
 #' lamb=calc_lamb(data$u,data$v,data$w,data$lev,lat=data$lat)
 calc_lamb=function(u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,relative=TRUE,zvort_fld=NULL,mode='lonlat') {
-	vort_fld=calc_vorticity(u_fld,v_fld,w_fld,lev_p,lat,dx,dy,zvort_only=FALSE,relative,zvort_fld,mode)
+	vort_fld=calc_vorticity(u_fld,v_fld,w_fld,lev_p,lat,dx,dy,FALSE,relative,zvort_fld,mode)
 	wind_fld=array(NA,dim=c(dim(u_fld),3))
 	wind_fld[,,,1]=u_fld
 	wind_fld[,,,2]=v_fld
