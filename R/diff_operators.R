@@ -178,17 +178,17 @@ grad=function(fld,lat=NULL,d=3,system='p',rho=NULL,dx=0.25,dy=0.25,plev=5000,mod
 #' @export
 div=function(fld,lat=NULL,d=3,system='p',rho=NULL,dx=0.25,dy=0.25,plev=5000,mode='lonlat') {
 	fld_div=array(0,dim=dim(fld))
-	fld_div=df_dx(fld,lat,dx)+df_dy(fld,dy)
+	fld_div=df_dx(fld[,,,1],lat,dx)+df_dy(fld[,,,2],dy)
 	if (d==2) {
 		return(fld_div) 
-	} else if (d==3 & mode=='p') {
-		fld_div=fld_div+df_dp(fld,plev)
+	} else if (d==3 & system=='p') {
+		fld_div=fld_div+df_dp(fld[,,,3],plev)
 		return(fld_div)
-	} else if (d==3 & mode=='z') {
+	} else if (d==3 & system=='z') {
 		if (is.null(rho)) {
 			message('The input density is still NULL.')
 		}
-		fld_div=fld_div+df_dz(fld,rho,plev)
+		fld_div=fld_div+df_dz(fld[,,,3],rho,plev)
 		return(fld_div)
 	} else {
 		message('Mode and dimension are not consistent.')
@@ -333,5 +333,3 @@ crossprod=function(fld1,fld2) {
 	fld_cp[,,,3]=fld1[,,,1]*fld2[,,,2]-fld1[,,,2]*fld2[,,,1]
 	return(fld_cp)
 }
-
-
