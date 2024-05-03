@@ -338,7 +338,7 @@ crossprod=function(fld1,fld2) {
 #' Frobenius norm
 #'
 #' @description Calculates the Frobenius norm of a given matrix or array
-#' @param mat 
+#' @param mat matrix with arbitrary dimensions
 #' @return Frobenius norm
 #' @export
 frobenius_norm=function(mat) {
