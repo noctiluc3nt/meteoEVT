@@ -333,3 +333,14 @@ crossprod=function(fld1,fld2) {
 	fld_cp[,,,3]=fld1[,,,1]*fld2[,,,2]-fld1[,,,2]*fld2[,,,1]
 	return(fld_cp)
 }
+
+
+#' Frobenius norm
+#'
+#' @description Calculates the Frobenius norm of a given matrix or array
+#' @param mat matrix with arbitrary dimensions
+#' @return Frobenius norm
+#' @export
+frobenius_norm=function(mat) {
+	return(sqrt(sum(mat^2)))
+}
