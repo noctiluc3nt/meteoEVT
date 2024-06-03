@@ -55,9 +55,9 @@ calc_vorticity_tensor=function(u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,
 #' @export
 #'
 #' @examples
-#' myfile = system.file("extdata", "era5_storm-zeynep.nc", package = "meteoEVT")
+#' myfile=system.file("extdata", "era5_storm-zeynep.nc", package = "meteoEVT")
 #' data = readin_era5(myfile)
-#' S = calc_strain_rate_tensor(data$u,data$v,data$w,data$lev,lat=data$lat)
+#' S= calc_strain_rate_tensor(data$u,data$v,data$w,data$lev,lat=data$lat)
 #'
 calc_strain_rate_tensor=function(u_fld,v_fld,w_fld,lev_p,lat=NULL,dx=0.25,dy=0.25,mode='lonlat') {
 	du_dx=df_dx(u_fld,lat,dx,mode)
